@@ -152,20 +152,20 @@ public class ArticleDetailFragment extends Fragment implements
         });
 
         bindViews();
-        //updateStatusBar();
+        updateStatusBar();
 
 
-/*
+
         final Toolbar toolbar = mRootView.findViewById(R.id.MyToolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         CollapsingToolbarLayout collapsingToolbarLayout = mRootView.findViewById(R.id.collapse_toolbar);
-        collapsingToolbarLayout.setTitle("teste");
+        //collapsingToolbarLayout.setTitle("teste");
 
-        collapsingToolbarLayout.setExpandedTitleColor(getColor(R.color.clLightText));
-        collapsingToolbarLayout.setCollapsedTitleTextColor(getColor(R.color.clLightText));
-        collapsingToolbarLayout.setContentScrimColor(getColor(R.color.clSelectedBackground));
-*/
+        collapsingToolbarLayout.setExpandedTitleColor(getContext().getColor(R.color.cardview_dark_background));
+        collapsingToolbarLayout.setCollapsedTitleTextColor(getContext().getColor(R.color.cardview_light_background));
+        collapsingToolbarLayout.setContentScrimColor(getContext().getColor(R.color.ltgray));
+
 
 
         return mRootView;
@@ -261,7 +261,7 @@ public class ArticleDetailFragment extends Fragment implements
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
                                 mRootView.findViewById(R.id.meta_bar)
                                         .setBackgroundColor(mMutedColor);
-                                //updateStatusBar();
+                                updateStatusBar();
                             }
                         }
 
