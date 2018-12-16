@@ -25,7 +25,7 @@ import android.widget.ScrollView;
 /**
  * A custom ScrollView that can accept a scroll listener.
  */
-public class ObservableScrollView extends ScrollView {
+public class ObservableScrollView extends android.support.v4.widget.NestedScrollView {
     private Callbacks mCallbacks;
 
     public ObservableScrollView(Context context, AttributeSet attrs) {
@@ -50,10 +50,12 @@ public class ObservableScrollView extends ScrollView {
         }
     }
 
+    /*
     @Override
     public int computeVerticalScrollRange() {
         return super.computeVerticalScrollRange();
     }
+    */
 
     public void setCallbacks(Callbacks listener) {
         mCallbacks = listener;

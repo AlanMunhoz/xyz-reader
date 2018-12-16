@@ -42,10 +42,18 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <com.example.xyzreader.ui.ObservableScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.example.xyzreader.ui.DrawInsetsFrameLayout
+            android:id="@+id/draw_insets_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
 
         <com.example.xyzreader.ui.MaxWidthLinearLayout
             android:layout_width="match_parent"
@@ -104,7 +112,10 @@
 
         </com.example.xyzreader.ui.MaxWidthLinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+        </com.example.xyzreader.ui.DrawInsetsFrameLayout>
+
+
+        </com.example.xyzreader.ui.ObservableScrollView>
 
     <ImageButton
         android:id="@+id/share_fab"
@@ -118,6 +129,9 @@
         android:elevation="@dimen/fab_elevation"
         android:src="@drawable/ic_share"
         android:stateListAnimator="@anim/fab_state_list_anim" />
+
+
+
 
 </android.support.design.widget.CoordinatorLayout>
 
