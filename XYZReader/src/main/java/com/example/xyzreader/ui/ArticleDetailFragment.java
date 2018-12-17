@@ -18,6 +18,7 @@ import java.util.GregorianCalendar;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.ShareCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
 import android.text.format.DateUtils;
@@ -156,15 +157,16 @@ public class ArticleDetailFragment extends Fragment implements
 
 
 
-        final Toolbar toolbar = mRootView.findViewById(R.id.MyToolbar);
-        //setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        CollapsingToolbarLayout collapsingToolbarLayout = mRootView.findViewById(R.id.collapse_toolbar);
-        //collapsingToolbarLayout.setTitle("teste");
+        //final android.support.v7.widget.Toolbar toolbar = mRootView.findViewById(R.id.MyToolbar);
+        //toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        //((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        //setDisplayHomeAsUpEnabled(true);
 
-        collapsingToolbarLayout.setExpandedTitleColor(getContext().getColor(R.color.cardview_dark_background));
+        CollapsingToolbarLayout collapsingToolbarLayout = mRootView.findViewById(R.id.collapse_toolbar);
+
+        collapsingToolbarLayout.setExpandedTitleColor(getContext().getColor(R.color.transparent));
         collapsingToolbarLayout.setCollapsedTitleTextColor(getContext().getColor(R.color.cardview_light_background));
-        collapsingToolbarLayout.setContentScrimColor(getContext().getColor(R.color.ltgray));
+        collapsingToolbarLayout.setContentScrimColor(getContext().getColor(R.color.cardview_dark_background));
 
 
 
@@ -221,7 +223,8 @@ public class ArticleDetailFragment extends Fragment implements
         TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
         bylineView.setMovementMethod(new LinkMovementMethod());
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
-
+        final CollapsingToolbarLayout collapsingToolbarLayout = mRootView.findViewById(R.id.collapse_toolbar);
+        android.support.v7.widget.Toolbar myToolbar = mRootView.findViewById(R.id.MyToolbar);
 
         bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
 
@@ -230,6 +233,9 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
             titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+            //collapsingToolbarLayout.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
+            //myToolbar.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
+
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
                 bylineView.setText(Html.fromHtml(
@@ -259,8 +265,8 @@ public class ArticleDetailFragment extends Fragment implements
                                 Palette p = Palette.generate(bitmap, 12);
                                 mMutedColor = p.getDarkMutedColor(0xFF333333);
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
-                                mRootView.findViewById(R.id.meta_bar)
-                                        .setBackgroundColor(mMutedColor);
+                                mRootView.findViewById(R.id.meta_bar).setBackgroundColor(mMutedColor);
+                                collapsingToolbarLayout.setContentScrimColor(mMutedColor);
                                 updateStatusBar();
                             }
                         }
