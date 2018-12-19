@@ -25,6 +25,7 @@ import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -157,16 +158,16 @@ public class ArticleDetailFragment extends Fragment implements
 
 
 
-        //final android.support.v7.widget.Toolbar toolbar = mRootView.findViewById(R.id.MyToolbar);
-        //toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
-        //((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        final android.support.v7.widget.Toolbar toolbar = mRootView.findViewById(R.id.MyToolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         //setDisplayHomeAsUpEnabled(true);
 
         CollapsingToolbarLayout collapsingToolbarLayout = mRootView.findViewById(R.id.collapse_toolbar);
 
         collapsingToolbarLayout.setExpandedTitleColor(getContext().getColor(R.color.transparent));
         collapsingToolbarLayout.setCollapsedTitleTextColor(getContext().getColor(R.color.cardview_light_background));
-        collapsingToolbarLayout.setContentScrimColor(getContext().getColor(R.color.cardview_dark_background));
+        //collapsingToolbarLayout.setContentScrimColor(getContext().getColor(R.color.cardview_dark_background));
 
 
 
@@ -225,6 +226,7 @@ public class ArticleDetailFragment extends Fragment implements
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
         final CollapsingToolbarLayout collapsingToolbarLayout = mRootView.findViewById(R.id.collapse_toolbar);
         android.support.v7.widget.Toolbar myToolbar = mRootView.findViewById(R.id.MyToolbar);
+        collapsingToolbarLayout.setContentScrimColor(mRootView.getContext().getColor(R.color.colorPrimary));
 
         bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
 
@@ -234,7 +236,7 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.animate().alpha(1);
             titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
             //collapsingToolbarLayout.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
-            //myToolbar.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
+            myToolbar.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
 
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
@@ -266,7 +268,7 @@ public class ArticleDetailFragment extends Fragment implements
                                 mMutedColor = p.getDarkMutedColor(0xFF333333);
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
                                 mRootView.findViewById(R.id.meta_bar).setBackgroundColor(mMutedColor);
-                                collapsingToolbarLayout.setContentScrimColor(mMutedColor);
+                                //collapsingToolbarLayout.setContentScrimColor(mMutedColor);
                                 updateStatusBar();
                             }
                         }
