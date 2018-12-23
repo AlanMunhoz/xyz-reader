@@ -1,22 +1,20 @@
 
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/Myappbar"
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="@dimen/app_bar_elevation"
-        android:fitsSystemWindows="true">
+        android:elevation="@dimen/app_bar_elevation">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapse_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <FrameLayout
@@ -34,7 +32,7 @@
             </FrameLayout>
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/MyToolbar"
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:elevation="@dimen/app_bar_elevation"
@@ -43,8 +41,6 @@
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
-
-
 
     <android.support.v4.widget.NestedScrollView
             android:id="@+id/scrollview"
@@ -103,11 +99,10 @@
                 android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
                 android:paddingBottom="@dimen/detail_body_bottom_margin"
                 android:textColor="@color/ltgray"
-                android:textColorLink="@color/theme_accent"
+                android:textColorLink="@color/pink_A200"
                 android:textSize="@dimen/detail_body_text_size" />
 
         </LinearLayout>
-
 
     </android.support.v4.widget.NestedScrollView>
 
@@ -115,14 +110,15 @@
         android:id="@+id/share_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
         android:layout_marginRight="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"
         android:background="@drawable/add_fab_background"
         android:contentDescription="@string/action_share"
         app:elevation="@dimen/fab_elevation"
         android:src="@drawable/ic_share"
-        android:stateListAnimator="@anim/fab_state_list_anim" />
+        android:stateListAnimator="@anim/fab_state_list_anim"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="right|bottom"/>
 
 </android.support.design.widget.CoordinatorLayout>
 

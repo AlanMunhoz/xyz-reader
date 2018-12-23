@@ -158,7 +158,7 @@ public class ArticleDetailFragment extends Fragment implements
 
 
 
-        final android.support.v7.widget.Toolbar toolbar = mRootView.findViewById(R.id.MyToolbar);
+        final android.support.v7.widget.Toolbar toolbar = mRootView.findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         //setDisplayHomeAsUpEnabled(true);
@@ -225,8 +225,8 @@ public class ArticleDetailFragment extends Fragment implements
         bylineView.setMovementMethod(new LinkMovementMethod());
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
         final CollapsingToolbarLayout collapsingToolbarLayout = mRootView.findViewById(R.id.collapse_toolbar);
-        android.support.v7.widget.Toolbar myToolbar = mRootView.findViewById(R.id.MyToolbar);
-        collapsingToolbarLayout.setContentScrimColor(mRootView.getContext().getColor(R.color.colorPrimary));
+        android.support.v7.widget.Toolbar myToolbar = mRootView.findViewById(R.id.toolbar);
+        collapsingToolbarLayout.setContentScrimColor(mRootView.getContext().getColor(R.color.indigo_500));
 
         bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
 
