@@ -18,33 +18,9 @@
 <resources>
 
     <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
-        <!--<item name="android:windowTranslucentStatus">true</item>-->
-        <!--<item name="android:windowTranslucentNavigation">true</item>-->
-
         <item name="colorPrimary">@color/indigo_500</item>
         <item name="colorPrimaryDark">@color/indigo_700</item>
         <item name="colorAccent">@color/pink_A200</item>
     </style>
-
-    <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/brown_500</item>
-        <item name="colorPrimaryDark">@color/brown_700</item>
-        <item name="colorAccent">@color/deep_orange_A200</item>
-    </style>
-
-    <style name="LightTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="CollapsingToolbarLayoutExpandedTitleTextAppearance" parent="@android:style/TextAppearance.Large">
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="CollapsingToolbarLayoutCollapsedTitleTextAppearance" parent="@android:style/TextAppearance.Medium">
-        <item name="android:textStyle">bold</item>
-    </style>
-
 
 </resources>

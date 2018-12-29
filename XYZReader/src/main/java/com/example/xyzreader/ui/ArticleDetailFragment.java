@@ -25,8 +25,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -117,41 +115,13 @@ public class ArticleDetailFragment extends Fragment implements
         final android.support.v7.widget.Toolbar toolbar = mRootView.findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        //setDisplayHomeAsUpEnabled(true);
 
         CollapsingToolbarLayout collapsingToolbarLayout = mRootView.findViewById(R.id.collapse_toolbar);
 
         collapsingToolbarLayout.setExpandedTitleColor(getContext().getColor(R.color.transparent));
         collapsingToolbarLayout.setCollapsedTitleTextColor(getContext().getColor(R.color.cardview_light_background));
-        //collapsingToolbarLayout.setContentScrimColor(getContext().getColor(R.color.cardview_dark_background));
 
         return mRootView;
-    }
-
-    private void updateStatusBar(int color) {
-
-        Window window = getActivity().getWindow();
-        // clear FLAG_TRANSLUCENT_STATUS flag:
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        // finally change the color
-        window.setStatusBarColor(color);
-
-    }
-
-    static float progress(float v, float min, float max) {
-        return constrain((v - min) / (max - min), 0, 1);
-    }
-
-    static float constrain(float val, float min, float max) {
-        if (val < min) {
-            return min;
-        } else if (val > max) {
-            return max;
-        } else {
-            return val;
-        }
     }
 
     private Date parsePublishedDate() {
@@ -185,7 +155,6 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
             titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
-            //collapsingToolbarLayout.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
             myToolbar.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
 
             Date publishedDate = parsePublishedDate();
@@ -218,10 +187,6 @@ public class ArticleDetailFragment extends Fragment implements
                                 mMutedColor = p.getDarkMutedColor(0xFF333333);
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
                                 mRootView.findViewById(R.id.meta_bar).setBackgroundColor(mMutedColor);
-
-                                //collapsingToolbarLayout.setContentScrimColor(mMutedColor);
-                                //collapsingToolbarLayout.setStatusBarScrimColor(mMutedColor);
-                                //updateStatusBar(mMutedColor);
                             }
                         }
 

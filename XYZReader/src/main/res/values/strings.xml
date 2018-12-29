@@ -1,12 +1,12 @@
 <resources>
 
     <string name="app_name">XYZ Reader</string>
-    <string name="welcome_xyz_reader">Welcome to XYZ Reader!</string>
-
     <string name="action_refresh">Refresh</string>
-    <string name="action_settings">Settings</string>
     <string name="action_share">Share</string>
 
-    <string name="up">Up</string>
+    <string name="article_static_title">Article Title</string>
+    <string name="article_static_byline">Article Byline</string>
+    <string name="article_static_text">Article Text</string>
+    <string name="article_image_description">Article image description</string>
 
 </resources>

@@ -43,5 +43,8 @@ dependencies {
 
     // NestedScrollView and CollapseToolbar
     implementation 'com.android.support:design:27.1.1'
+    // constraint layout dependence
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+
 
 }
